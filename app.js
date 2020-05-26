@@ -3,14 +3,29 @@ var milliseconds = 0;
 var seconds = 0;
 var minutes = 0;
 
+var startButton;
+var stopButton;
 
 function start() {
-    clearInterval(interval)
+    clearInterval(interval);
+    startButton = document.getElementById("start");
+    stopButton = document.getElementById("stop");
+
+    if(startButton.disabled == false){
+        startButton.disabled = true;
+        stopButton.disabled = false;
+    }
     interval = setInterval(startTimer, 10);
 }
 
 function stop() {
     clearInterval(interval);
+    startButton = document.getElementById("start");
+    stopButton = document.getElementById("stop");
+    if(stopButton.disabled == false){
+        startButton.disabled = false;
+        stopButton.disabled = true;
+    }
 }
 
 function reset() {
